@@ -1,17 +1,492 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Yazılım Mektebi | Kitap Mağazası</title>
-    <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <script
-      type="text/javascript"
-      src="assets/bootstrap/js/bootstrap.min.js"
-    ></script>
-    <script type="text/javascript" src="app.js"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yazılım Mektebi | Kitap Mağazası</title>
+  <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  
+  <nav class="navbar">
+    <h2 class="title">Bookshop</h2>
+    <ul class="menu">
+      <li class="active">Books</li>
+      <li>Audiobooks</li>
+      <li>Gifts</li>
+      <li>About</li>
+    </ul>
+    <ul class="menu__icons">
+      <li><i class="bi bi-person"></i></li>
+      <li><i class="bi bi-search"></i></li>
+      <li class="basket__icon">
+        <i class="bi bi-bag"></i>
+        <span class="basket__count">2</span>
+      </li>
+    </ul>
+  </nav>
+  <section class="slider">
+    <div id="carouselBookSlider" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="assets\images\slide1.png" class="d-block w-100" alt="First slide">
+        </div>
+        <div class="carousel-item">
+          <img src="assets\images\slide2.png" class="d-block w-100" alt="Second slide">
+        </div>
+        <div class="carousel-item">
+          <img src="assets\images\slide3.png" class="d-block w-100" alt="Third slide">
+        </div>
+      </div>
+
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselBookSlider" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselBookSlider" data-bs-slide="next">
+
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </section>
+  <section class="store my-5">
+    <div class="filter">
+      
+    </div>
+    <!-- SATIR -1 -->
+    <div class="row">
+      <div class="col-5 offset-2 my-5">
+        <div class="row">
+          <div class="col-6">
+            <img class="img-fluid shadow" src="assets\images\books\alayci-kus.jpg" width="258" height="400">
+          </div>
+          <div class="col-6 d-flex flex-column justify-content-between">
+            <div class="book__detail">
+              <span class="fos gray fs-5">Said Nursi Bediüzzaman</span><br />
+              <span class="fs-5 fw-bold"> Sözler </span><br />
+              <span class="book__star_rate">
+                <i class="bi bi-star-fill active"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star"></i>
+                <span class="book__reviews">5 reviews</span>
+              </span>
+            </div>
+            <p class="book__description">Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Ducimus porro possimus deleniti omnis temporibus itaque
+              laboriosam doloremque facilis! Earum, reiciendis voluptate
+              iste sed cupiditate voluptatem veniam consequuntur? Iusto
+              quia praesentium delectus aperiam in placeat, nemo quibusdam
+              nobis fuga voluptatibus ex dolore similique itaque deserunt
+              esse iste necessitatibus aut velit sint.
+            </p>
+            <div>
+              <span class="black fw-bold fs-4 me-2">45₺</span>
+              <span class="old__price fw-bold fs-4">65₺</span>
+            </div>
+            <button class="btn__purple">ADD BASKET</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-5 my-5">
+        <div class="row">
+          <div class="col-6">
+            <img class="img-fluid shadow" src="assets\images\books\alayci-kus.jpg" width="258" height="400">
+          </div>
+          <div class="col-6 d-flex flex-column justify-content-between">
+            <div class="book__detail">
+              <span class="fos gray fs-5">Said Nursi Bediüzzaman</span><br />
+              <span class="fs-5 fw-bold"> Sözler </span><br />
+              <span class="book__star_rate">
+                <i class="bi bi-star-fill active"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star"></i>
+                <span class="book__reviews">5 reviews</span>
+              </span>
+            </div>
+            <p class="book__description">Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Ducimus porro possimus deleniti omnis temporibus itaque
+              laboriosam doloremque facilis! Earum, reiciendis voluptate
+              iste sed cupiditate voluptatem veniam consequuntur? Iusto
+              quia praesentium delectus aperiam in placeat, nemo quibusdam
+              nobis fuga voluptatibus ex dolore similique itaque deserunt
+              esse iste necessitatibus aut velit sint.
+            </p>
+            <div>
+              <span class="black fw-bold fs-4 me-2">45₺</span>
+              <span class="old__price fw-bold fs-4">65₺</span>
+            </div>
+            <button class="btn__purple">ADD BASKET</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- SATIR -2 -->
+    <div class="row">
+      <div class="col-5 offset-2 my-5">
+        <div class="row">
+          <div class="col-6">
+            <img class="img-fluid shadow" src="assets\images\books\alayci-kus.jpg" width="258" height="400">
+          </div>
+          <div class="col-6 d-flex flex-column justify-content-between">
+            <div class="book__detail">
+              <span class="fos gray fs-5">Said Nursi Bediüzzaman</span><br />
+              <span class="fs-5 fw-bold"> Sözler </span><br />
+              <span class="book__star_rate">
+                <i class="bi bi-star-fill active"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star"></i>
+                <span class="book__reviews">5 reviews</span>
+              </span>
+            </div>
+            <p class="book__description">Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Ducimus porro possimus deleniti omnis temporibus itaque
+              laboriosam doloremque facilis! Earum, reiciendis voluptate
+              iste sed cupiditate voluptatem veniam consequuntur? Iusto
+              quia praesentium delectus aperiam in placeat, nemo quibusdam
+              nobis fuga voluptatibus ex dolore similique itaque deserunt
+              esse iste necessitatibus aut velit sint.
+            </p>
+            <div>
+              <span class="black fw-bold fs-4 me-2">45₺</span>
+              <span class="old__price fw-bold fs-4">65₺</span>
+            </div>
+            <button class="btn__purple">ADD BASKET</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-5 my-5">
+        <div class="row">
+          <div class="col-6">
+            <img class="img-fluid shadow" src="assets\images\books\alayci-kus.jpg" width="258" height="400">
+          </div>
+          <div class="col-6 d-flex flex-column justify-content-between">
+            <div class="book__detail">
+              <span class="fos gray fs-5">Said Nursi Bediüzzaman</span><br />
+              <span class="fs-5 fw-bold"> Sözler </span><br />
+              <span class="book__star_rate">
+                <i class="bi bi-star-fill active"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star"></i>
+                <span class="book__reviews">5 reviews</span>
+              </span>
+            </div>
+            <p class="book__description">Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Ducimus porro possimus deleniti omnis temporibus itaque
+              laboriosam doloremque facilis! Earum, reiciendis voluptate
+              iste sed cupiditate voluptatem veniam consequuntur? Iusto
+              quia praesentium delectus aperiam in placeat, nemo quibusdam
+              nobis fuga voluptatibus ex dolore similique itaque deserunt
+              esse iste necessitatibus aut velit sint.
+            </p>
+            <div>
+              <span class="black fw-bold fs-4 me-2">45₺</span>
+              <span class="old__price fw-bold fs-4">65₺</span>
+            </div>
+            <button class="btn__purple">ADD BASKET</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- SATIR -3 -->
+    <div class="row">
+      <div class="col-5 offset-2 my-5">
+        <div class="row">
+          <div class="col-6">
+            <img class="img-fluid shadow" src="assets\images\books\alayci-kus.jpg" width="258" height="400">
+          </div>
+          <div class="col-6 d-flex flex-column justify-content-between">
+            <div class="book__detail">
+              <span class="fos gray fs-5">Said Nursi Bediüzzaman</span><br />
+              <span class="fs-5 fw-bold"> Sözler </span><br />
+              <span class="book__star_rate">
+                <i class="bi bi-star-fill active"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star"></i>
+                <span class="book__reviews">5 reviews</span>
+              </span>
+            </div>
+            <p class="book__description">Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Ducimus porro possimus deleniti omnis temporibus itaque
+              laboriosam doloremque facilis! Earum, reiciendis voluptate
+              iste sed cupiditate voluptatem veniam consequuntur? Iusto
+              quia praesentium delectus aperiam in placeat, nemo quibusdam
+              nobis fuga voluptatibus ex dolore similique itaque deserunt
+              esse iste necessitatibus aut velit sint.
+            </p>
+            <div>
+              <span class="black fw-bold fs-4 me-2">45₺</span>
+              <span class="old__price fw-bold fs-4">65₺</span>
+            </div>
+            <button class="btn__purple">ADD BASKET</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-5 my-5">
+        <div class="row">
+          <div class="col-6">
+            <img class="img-fluid shadow" src="assets\images\books\alayci-kus.jpg" width="258" height="400">
+          </div>
+          <div class="col-6 d-flex flex-column justify-content-between">
+            <div class="book__detail">
+              <span class="fos gray fs-5">Said Nursi Bediüzzaman</span><br />
+              <span class="fs-5 fw-bold"> Sözler </span><br />
+              <span class="book__star_rate">
+                <i class="bi bi-star-fill active"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star"></i>
+                <span class="book__reviews">5 reviews</span>
+              </span>
+            </div>
+            <p class="book__description">Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Ducimus porro possimus deleniti omnis temporibus itaque
+              laboriosam doloremque facilis! Earum, reiciendis voluptate
+              iste sed cupiditate voluptatem veniam consequuntur? Iusto
+              quia praesentium delectus aperiam in placeat, nemo quibusdam
+              nobis fuga voluptatibus ex dolore similique itaque deserunt
+              esse iste necessitatibus aut velit sint.
+            </p>
+            <div>
+              <span class="black fw-bold fs-4 me-2">45₺</span>
+              <span class="old__price fw-bold fs-4">65₺</span>
+            </div>
+            <button class="btn__purple">ADD BASKET</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- SATIR -4 -->
+    <div class="row">
+      <div class="col-5 offset-2 my-5">
+        <div class="row">
+          <div class="col-6">
+            <img class="img-fluid shadow" src="assets\images\books\alayci-kus.jpg" width="258" height="400">
+          </div>
+          <div class="col-6 d-flex flex-column justify-content-between">
+            <div class="book__detail">
+              <span class="fos gray fs-5">Said Nursi Bediüzzaman</span><br />
+              <span class="fs-5 fw-bold"> Sözler </span><br />
+              <span class="book__star_rate">
+                <i class="bi bi-star-fill active"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star"></i>
+                <span class="book__reviews">5 reviews</span>
+              </span>
+            </div>
+            <p class="book__description">Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Ducimus porro possimus deleniti omnis temporibus itaque
+              laboriosam doloremque facilis! Earum, reiciendis voluptate
+              iste sed cupiditate voluptatem veniam consequuntur? Iusto
+              quia praesentium delectus aperiam in placeat, nemo quibusdam
+              nobis fuga voluptatibus ex dolore similique itaque deserunt
+              esse iste necessitatibus aut velit sint.
+            </p>
+            <div>
+              <span class="black fw-bold fs-4 me-2">45₺</span>
+              <span class="old__price fw-bold fs-4">65₺</span>
+            </div>
+            <button class="btn__purple">ADD BASKET</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-5 my-5">
+        <div class="row">
+          <div class="col-6">
+            <img class="img-fluid shadow" src="assets\images\books\alayci-kus.jpg" width="258" height="400">
+          </div>
+          <div class="col-6 d-flex flex-column justify-content-between">
+            <div class="book__detail">
+              <span class="fos gray fs-5">Said Nursi Bediüzzaman</span><br />
+              <span class="fs-5 fw-bold"> Sözler </span><br />
+              <span class="book__star_rate">
+                <i class="bi bi-star-fill active"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star"></i>
+                <span class="book__reviews">5 reviews</span>
+              </span>
+            </div>
+            <p class="book__description">Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Ducimus porro possimus deleniti omnis temporibus itaque
+              laboriosam doloremque facilis! Earum, reiciendis voluptate
+              iste sed cupiditate voluptatem veniam consequuntur? Iusto
+              quia praesentium delectus aperiam in placeat, nemo quibusdam
+              nobis fuga voluptatibus ex dolore similique itaque deserunt
+              esse iste necessitatibus aut velit sint.
+            </p>
+            <div>
+              <span class="black fw-bold fs-4 me-2">45₺</span>
+              <span class="old__price fw-bold fs-4">65₺</span>
+            </div>
+            <button class="btn__purple">ADD BASKET</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- SATIR -5 -->
+    <div class="row">
+      <div class="col-5 offset-2 my-5">
+        <div class="row">
+          <div class="col-6">
+            <img class="img-fluid shadow" src="assets\images\books\alayci-kus.jpg" width="258" height="400">
+          </div>
+          <div class="col-6 d-flex flex-column justify-content-between">
+            <div class="book__detail">
+              <span class="fos gray fs-5">Said Nursi Bediüzzaman</span><br />
+              <span class="fs-5 fw-bold"> Sözler </span><br />
+              <span class="book__star_rate">
+                <i class="bi bi-star-fill active"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star"></i>
+                <span class="book__reviews">5 reviews</span>
+              </span>
+            </div>
+            <p class="book__description">Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Ducimus porro possimus deleniti omnis temporibus itaque
+              laboriosam doloremque facilis! Earum, reiciendis voluptate
+              iste sed cupiditate voluptatem veniam consequuntur? Iusto
+              quia praesentium delectus aperiam in placeat, nemo quibusdam
+              nobis fuga voluptatibus ex dolore similique itaque deserunt
+              esse iste necessitatibus aut velit sint.
+            </p>
+            <div>
+              <span class="black fw-bold fs-4 me-2">45₺</span>
+              <span class="old__price fw-bold fs-4">65₺</span>
+            </div>
+            <button class="btn__purple">ADD BASKET</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-5 my-5">
+        <div class="row">
+          <div class="col-6">
+            <img class="img-fluid shadow" src="assets\images\books\alayci-kus.jpg" width="258" height="400">
+          </div>
+          <div class="col-6 d-flex flex-column justify-content-between">
+            <div class="book__detail">
+              <span class="fos gray fs-5">Said Nursi Bediüzzaman</span><br />
+              <span class="fs-5 fw-bold"> Sözler </span><br />
+              <span class="book__star_rate">
+                <i class="bi bi-star-fill active"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star"></i>
+                <span class="book__reviews">5 reviews</span>
+              </span>
+            </div>
+            <p class="book__description">Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Ducimus porro possimus deleniti omnis temporibus itaque
+              laboriosam doloremque facilis! Earum, reiciendis voluptate
+              iste sed cupiditate voluptatem veniam consequuntur? Iusto
+              quia praesentium delectus aperiam in placeat, nemo quibusdam
+              nobis fuga voluptatibus ex dolore similique itaque deserunt
+              esse iste necessitatibus aut velit sint.
+            </p>
+            <div>
+              <span class="black fw-bold fs-4 me-2">45₺</span>
+              <span class="old__price fw-bold fs-4">65₺</span>
+            </div>
+            <button class="btn__purple">ADD BASKET</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- SATIR -6 -->
+    <div class="row">
+      <div class="col-5 offset-2 my-5">
+        <div class="row">
+          <div class="col-6">
+            <img class="img-fluid shadow" src="assets\images\books\alayci-kus.jpg" width="258" height="400">
+          </div>
+          <div class="col-6 d-flex flex-column justify-content-between">
+            <div class="book__detail">
+              <span class="fos gray fs-5">Said Nursi Bediüzzaman</span><br />
+              <span class="fs-5 fw-bold"> Sözler </span><br />
+              <span class="book__star_rate">
+                <i class="bi bi-star-fill active"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star"></i>
+                <span class="book__reviews">5 reviews</span>
+              </span>
+            </div>
+            <p class="book__description">Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Ducimus porro possimus deleniti omnis temporibus itaque
+              laboriosam doloremque facilis! Earum, reiciendis voluptate
+              iste sed cupiditate voluptatem veniam consequuntur? Iusto
+              quia praesentium delectus aperiam in placeat, nemo quibusdam
+              nobis fuga voluptatibus ex dolore similique itaque deserunt
+              esse iste necessitatibus aut velit sint.
+            </p>
+            <div>
+              <span class="black fw-bold fs-4 me-2">45₺</span>
+              <span class="old__price fw-bold fs-4">65₺</span>
+            </div>
+            <button class="btn__purple">ADD BASKET</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-5 my-5">
+        <div class="row">
+          <div class="col-6">
+            <img class="img-fluid shadow" src="assets\images\books\alayci-kus.jpg" width="258" height="400">
+          </div>
+          <div class="col-6 d-flex flex-column justify-content-between">
+            <div class="book__detail">
+              <span class="fos gray fs-5">Said Nursi Bediüzzaman</span><br />
+              <span class="fs-5 fw-bold"> Sözler </span><br />
+              <span class="book__star_rate">
+                <i class="bi bi-star-fill active"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star"></i>
+                <span class="book__reviews">5 reviews</span>
+              </span>
+            </div>
+            <p class="book__description">Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Ducimus porro possimus deleniti omnis temporibus itaque
+              laboriosam doloremque facilis! Earum, reiciendis voluptate
+              iste sed cupiditate voluptatem veniam consequuntur? Iusto
+              quia praesentium delectus aperiam in placeat, nemo quibusdam
+              nobis fuga voluptatibus ex dolore similique itaque deserunt
+              esse iste necessitatibus aut velit sint.
+            </p>
+            <div>
+              <span class="black fw-bold fs-4 me-2">45₺</span>
+              <span class="old__price fw-bold fs-4">65₺</span>
+            </div>
+            <button class="btn__purple">ADD BASKET</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script type="text/javascript" src="assets/bootstrap/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="app.js"></script>
+</body>
+
 </html>

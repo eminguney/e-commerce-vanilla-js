@@ -11,3 +11,137 @@
   --gray: #5c6a79;
   --purple: #4c3db2;
 }
+
+.title{
+  font-weight: bold;
+}
+
+.navbar{
+  height: 120px;
+  width: 80%;
+  margin-left: 10%;
+}
+
+.menu, 
+.menu__icons{
+  list-style-type: none; /*madde işaretlerini yoketmek için*/
+  display: flex; /*Soldan sağa bir çizgi üzerinde*/
+  flex-direction: row;
+  font-size: 20px;
+  color: var(--gray);
+  cursor: pointer;
+}
+
+.menu li, .menu__icons li{
+  margin: 0 10px; /*sol-saü boşluk*/
+}
+
+.menu .active{
+  color: var(--black);
+  font-weight: bold;
+}
+
+.menu li,
+.menu__icons li{
+  color: var(--black);
+}
+
+.basket__icon{
+  position: relative;
+}
+
+.basket__count{
+  position: absolute;
+  right: -0.7rem;
+  bottom: 0;
+  width: 20px;
+  height: 20px;
+  background-color: var(--black);
+  border-radius: 50%;
+  color: white;
+  display: flex;
+  justify-content:center ;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.slider{
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  height: 600px;
+}
+
+.slider img{
+  height: 600px;
+}
+
+.store{
+  width: 80%;
+  margin-left: 10%;
+}
+
+.book__card{
+  width: 400px;
+  font-size: 0.8rem;
+}
+
+.fos{
+  font-family: "Open Sans", sans-serif;
+}
+
+.gray{
+  color: var(--gray);
+}
+
+.black{
+  color: var(--black);
+}
+
+.fw-bold{
+  font-weight: bold;
+}
+
+.book__star_rate .bi-star, .bi-star-fill{
+  color: #eeedf5;
+  margin-right: 5px;
+}
+
+.book__star_rate .bi-star-fill.active{
+  color: #f2c94c;
+  font-size: 0.7rem;
+  margin-right: 5px;
+}
+
+.old__price{
+  text-decoration: line-through;
+  color: #bdbdbd;
+}
+
+.book__reviews{
+  color: var(--gray);
+}
+
+.book__description{
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.btn__purple{
+  cursor: pointer;
+  border: 2px solid var(--purple);
+  color: var(--purple);
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: transparent;
+  transition: all 250ms ease-in-out;
+}
+
+.btn__purple:hover{
+  color: white;
+  background-color: var(--purple);
+}
