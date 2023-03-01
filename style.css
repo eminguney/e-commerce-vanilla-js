@@ -71,7 +71,9 @@
   font-size: 1rem;
   font-weight: bold;
 }
-
+.basket__count :empty{
+  display: none;
+}
 .slider {
   width: 80%;
   margin-left: auto;

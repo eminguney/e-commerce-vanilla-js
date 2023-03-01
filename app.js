@@ -16,7 +16,7 @@ getBooks();
 const createBookStars = (starRate) => {
   let starRateHtml = "";
   for (let i = 1; i <= 5; i++) {
-    if (Math.round(starRate) >= i) 
+    if (Math.round(starRate) >= i)
       starRateHtml += `<i class="bi bi-star-fill active"></i>`;
     else starRateHtml += `<i class="bi bi-star-fill"></i>`;
   }
@@ -55,9 +55,47 @@ const createBookItemsHTML = () => {
   </div>`;
   });
 
-bookListEl.innerHTML = bookListHtml;
+  bookListEl.innerHTML = bookListHtml;
 };
 
-setTimeout(() =>{
+const BOOK_TYPES = {
+  ALL: "Tümü",
+  NOVEL: "Roman",
+  CHILDREN: "Çocuk",
+  SELFIMPROVEMENT: "Kişisel Gelişim",
+  HISTORY: "Tarih",
+  FINANCE: "Finans",
+  SCIENCE: "Bilim",
+};
+
+const createBookTypesHTML = () => {
+  const filterEl = document.querySelector(".filter");
+  let filterHtml = "";
+  let filterTypes = ["ALL"];
+  bookList.forEach((book) => {
+    if (filterTypes.findIndex((filter) => filter == book.type) == -1)
+      filterTypes.push(book.type);
+  });
+
+  filterTypes.forEach((type, index) => {
+    filterHtml += `<li class="${index == 0 ? "active" : null}" onclick="filterBooks(this)" data-type="${type}">${
+      BOOK_TYPES[type] || type 
+    }</li>`;
+  });
+  
+  filterEl.innerHTML = filterHtml;
+};
+
+const filterBooks = (filterEl) => {
+  document.querySelector(".filter .active").classList.remove("active");
+  filterEl.classList.add("active");
+  let bookType = filterEl.dataset.type;
+  getBooks();
+  if(bookType != "ALL") bookList = bookList.filter(book=> book.type == bookType)
   createBookItemsHTML();
-},100);
+};
+
+setTimeout(() => {
+  createBookItemsHTML();
+  createBookTypesHTML();
+}, 100);
