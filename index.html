@@ -1,16 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Yazılım Mektebi | Kitap Mağazası</title>
   <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="./assets/toastr/toastr.min.css" />
   <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
-
   <nav class="navbar">
     <h2 class="title">Bookshop</h2>
     <ul class="menu">
@@ -46,65 +44,27 @@
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Previous</span>
       </button>
-
       <button class="carousel-control-next" type="button" data-bs-target="#carouselBookSlider" data-bs-slide="next">
-
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Next</span>
       </button>
     </div>
   </section>
-
   <div class="basket__modal ">
     <div class="basket__items">
       <i class="bi bi-x" onclick="toggleModal()"></i>
       <h2 class="basket__title">Your Items</h2>
       <ul class="basket__list">
-        <li class="basket__item">
-          <img src="assets\images\books\alayci-kus.jpg" width="100" height="100">
-          <div class="basket__item-info">
-            <h3 class="book__name">Nutuk</h3>
-            <span class="book__price">45₺</span><br />
-            <span class="book__remove">remove</span>
-          </div>
-          <div class="book__count">
-            <span class="decrease">-</span>
-            <span class="my-5">2</span>
-            <span class="increase">+</span>
-          </div>
-        </li>
-        <li class="basket__item">
-          <img src="assets\images\books\alayci-kus.jpg" width="100" height="100">
-          <div class="basket__item-info">
-            <h3 class="book__name">Nutuk</h3>
-            <span class="book__price">45₺</span><br />
-            <span class="book__remove">remove</span>
-          </div>
-          <div class="book__count">
-            <span class="decrease">-</span>
-            <span class="my-5">2</span>
-            <span class="increase">+</span>
-          </div>
-        </li>
-        <li class="basket__item">
-          <img src="assets\images\books\alayci-kus.jpg" width="100" height="100">
-          <div class="basket__item-info">
-            <h3 class="book__name">Nutuk</h3>
-            <span class="book__price">45₺</span><br />
-            <span class="book__remove">remove</span>
-          </div>
-          <div class="book__count">
-            <span class="decrease">-</span>
-            <span class="my-5">2</span>
-            <span class="increase">+</span>
-          </div>
-        </li>
-        
+          <li class="basket__item"> No items to Buy again. </li>
       </ul>
-      <div class="basket__total"><span class="fw-bold mb-3 fs-4">Total : 145 ₺</span><button class="btn__purple">CHECKOUT</button></div>
+      <div class="basket__total"><span class="fw-bold mb-3 fs-4 total__price">Total : 145 ₺</span><button
+          class="btn__purple">CHECKOUT</button>
+      </div>
     </div>
   </div>
-
+  <div class="book__count">
+    <span class="decrease">-</span>
+  </div>
   <section class="store my-5">
     <div class="filter__background"></div>
     <ul class="filter">
@@ -185,9 +145,9 @@
       </div>
     </div>
   </section>
-
   <script type="text/javascript" src="assets/bootstrap/js/bootstrap.min.js"></script>
+  <script src="./assets/jquery/jquery.min.js"></script>
+  <script src="./assets/toastr/toastr.min.js"></script>
   <script type="text/javascript" src="app.js"></script>
 </body>
-
 </html>

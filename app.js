@@ -1,4 +1,23 @@
-let bookList = [];
+let bookList = [],
+  basketList = [];
+
+toastr.options = {
+  "closeButton": false,
+  "debug": false,
+  "newestOnTop": false,
+  "progressBar": false,
+  "positionClass": "toast-bottom-right",
+  "preventDuplicates": false,
+  "onclick": null,
+  "showDuration": "300",
+  "hideDuration": "1000",
+  "timeOut": "5000",
+  "extendedTimeOut": "1000",
+  "showEasing": "swing",
+  "hideEasing": "linear",
+  "showMethod": "fadeIn",
+  "hideMethod": "fadeOut"
+}
 
 const toggleModal = () => {
   const basketModalEl = document.querySelector(".basket__modal");
@@ -38,7 +57,7 @@ const createBookItemsHTML = () => {
           <span class="fos gray fs-5">${book.author}</span><br />
           <span class="fs-5 fw-bold"> ${book.name} </span><br />
           <span class="book__star_rate">
-            ${createBookStars()}
+            ${createBookStars(book.starRate)}
             <span class="book__reviews">${book.reviewCount}</span>
           </span>
         </div>
@@ -47,9 +66,14 @@ const createBookItemsHTML = () => {
         </p>
         <div>
           <span class="black fw-bold fs-4 me-2">${book.price}₺</span>
-          ${book.oldPrice && `<span class="old__price fw-bold fs-4">${book.oldPrice}₺</span>`}
+          ${book.oldPrice 
+            ? `<span class="old__price fw-bold fs-4">${book.oldPrice}₺</span>`
+            :""
+          }
         </div>
-        <button class="btn__purple">ADD BASKET</button>
+        <button class="btn__purple" onclick="addBookToBasket(${
+          book.id
+        })">ADD BASKET</button>
       </div>
     </div>
   </div>`;
@@ -82,7 +106,7 @@ const createBookTypesHTML = () => {
       BOOK_TYPES[type] || type 
     }</li>`;
   });
-  
+
   filterEl.innerHTML = filterHtml;
 };
 
@@ -91,9 +115,109 @@ const filterBooks = (filterEl) => {
   filterEl.classList.add("active");
   let bookType = filterEl.dataset.type;
   getBooks();
-  if(bookType != "ALL") bookList = bookList.filter(book=> book.type == bookType)
+  if (bookType != "ALL") bookList = bookList.filter(book => book.type == bookType)
   createBookItemsHTML();
 };
+
+const listBasketItems = () => {
+  localStorage.setItem("basketList", JSON.stringify(basketList));
+  const basketListEl = document.querySelector(".basket__list");
+  const basketCountEl = document.querySelector(".basket__count");
+  basketCountEl.innerHTML = basketList.length > 0 ? basketList.length : null;
+  const totalPriceEl = document.querySelector(".total__price");
+
+  let basketListHtml = "";
+  let totalPrice = 0;
+  basketList.forEach((item) => {
+    totalPrice += item.product.price * item.quantity;
+    basketListHtml += `<li class="basket__item">
+    <img 
+    src="${item.product.imgSource}" 
+    width="100" 
+    height="100"
+    >
+    <div class="basket__item-info">
+      <h3 class="book__name">${item.product.name}</h3>
+      <span class="book__price">${item.product.price}</span><br />
+      <span class="book__remove" onclick="removeItemToBasket(${item.product.id})"> remove </span>
+    </div>
+    <div class="book__count">
+      <span class="decrease" onclick="decreaseItemToBasket(${item.product.id})">-</span>
+      <span class="my-5">${item.quantity}</span>
+      <span class="increase" onclick="increaseItemToBasket(${item.product.id})">+</span>
+    </div>
+  </li>`;
+  });
+  basketListEl.innerHTML = basketListHtml ? basketListHtml : `
+  <li class="basket__item"> No items to Buy again. </li>`;
+  totalPriceEl.innerHTML = totalPrice > 0 ? "Total : " + totalPrice.toFixed(2) + "TL" : null;
+};
+
+const addBookToBasket = (bookId) => {
+  let findedBook = bookList.find((book) => book.id == bookId);
+  if (findedBook) {
+    const basketAlreadyIndex = basketList.findIndex(
+      (basket) => basket.product.id == bookId
+    );
+    if (basketAlreadyIndex == -1) {
+      let addedItem = {
+        quantity: 1,
+        product: findedBook
+      };
+      basketList.push(addedItem);
+    } else {
+      if (
+        basketList[basketAlreadyIndex].quantity <
+        basketList[basketAlreadyIndex].product.stock
+      )
+        basketList[basketAlreadyIndex].quantity += 1;
+      else {
+        toastr.error("Sorry, we don't have enough stock.");
+        return;
+      }
+    }
+    listBasketItems();
+    toastr.success("Book added to basket successfully.");
+  }
+};
+
+const decreaseItemToBasket = (bookId) => {
+  const findedIndex = basketList.findIndex(
+    (basket) => basket.product.id == bookId
+  );
+  if (findedIndex != -1) {
+    if (basketList[findedIndex].quantity != 1)
+      basketList[findedIndex].quantity -= 1;
+    else removeItemToBasket(bookId);
+    listBasketItems();
+  }
+};
+
+const increaseItemToBasket = (bookId) => {
+  const findedIndex = basketList.findIndex(
+    (basket) => basket.product.id == bookId
+  );
+  if (findedIndex != -1) {
+    if (basketList[findedIndex].quantity < basketList[findedIndex].product.stock)
+      basketList[findedIndex].quantity += 1;
+    else toastr.error("Sorry, we don't have enough stock.");
+    listBasketItems();
+  }
+};
+
+const removeItemToBasket = (bookId) => {
+  const findedIndex = basketList.findIndex(basket => basket.product.id == bookId);
+  if (findedIndex != -1) {
+    basketList.splice(findedIndex, 1);
+  }
+  listBasketItems();
+}
+
+
+if(localStorage.getItem("basketList")){
+  basketList = JSON.parse(localStorage.getItem("basketList"));
+  listBasketItems();
+}
 
 setTimeout(() => {
   createBookItemsHTML();
